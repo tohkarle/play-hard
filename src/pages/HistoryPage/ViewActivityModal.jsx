@@ -126,7 +126,7 @@ const ViewActivityModal = ({ showModal, setShowModal, selectedActivity, joinedAc
                                                         key={index}
                                                         src={image}
                                                         alt="Activity_Image"
-                                                        className={`bg-gray-100 ${selectedActivity.activityData.imgUrl.length > 1 ? 'w-64' : 'w-full'} h-44 object-cover object-center rounded-md hover:border-[4px] border-gray-400`}
+                                                        className={`bg-gray-100 ${selectedActivity.activityData.imgUrl.length > 1 ? 'w-64' : 'w-full'} h-44 object-cover object-center rounded-md`}
                                                     />
                                                 ))
                                             ) : (

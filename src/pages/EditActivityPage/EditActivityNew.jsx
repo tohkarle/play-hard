@@ -191,7 +191,7 @@ const EditActivityNew = () => {
                                 key={index}
                                 src={image}
                                 alt="Activity_Image"
-                                className={`bg-gray-100 ml-2.5 ${index === activity.activityData.imgUrl.length - 1 ? 'mr-2.5' : ''} ${activity.activityData.imgUrl.length > 1 ? 'w-64' : 'w-full mr-2.5 border'} h-44 object-cover object-center rounded-md hover:border-[4px] border-gray-400 transition-all duration-100 ease-in-out`}
+                                className={`bg-gray-100 mb-3 ml-2.5 ${index === activity.activityData.imgUrl.length - 1 ? 'mr-2.5' : ''} ${activity.activityData.imgUrl.length > 1 ? 'w-64' : 'w-full mr-2.5'} h-44 object-cover object-center rounded-md transition-all duration-100 ease-in-out`}
                             />
                         ))
                     ) : (

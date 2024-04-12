@@ -5,7 +5,7 @@ import { IoChevronForwardOutline } from "react-icons/io5";
 const ActivityCard = ({ activity, index, handleClick }) => {
 
     return (
-        <div className="px-3 mb-4">
+        <div className="px-3 mb-5 select-none active:scale-[0.98] transform-gpu transition-all ease-in-out duration-200">
             <div key={index} className="w-full bg-white border border-gray-200 rounded-xl shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer">
                 {activity.activityData.imgUrl.length > 0 ? (
                     <img className="w-full h-40 object-cover rounded-t-lg" src={activity.activityData.imgUrl} alt="" />

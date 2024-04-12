@@ -193,7 +193,7 @@ const EditProfileNew = () => {
                         </label>
 
                         <button
-                            className="w-full text-sm bg-transparent hover:border-transparent focus:border-transparent pb-0"
+                            className="w-full text-sm bg-transparent hover:border-transparent focus:border-transparent pb-0 text-red-500"
                             onClick={deleteFile}
                         >Discard image</button>
                     </div>

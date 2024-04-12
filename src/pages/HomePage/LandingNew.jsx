@@ -1,9 +1,8 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 
 import { UserAuth } from "../../context/AuthContext";
 import { txtDB } from "../../firebase";
-
 
 import Activities from "./Activities";
 import ActivityModal from "./ActivityModal";
@@ -24,7 +23,7 @@ const LandingNew = () => {
         const fetchActivities = async () => {
             try {
                 const collectionRef = collection(txtDB, "Activities");
-                const snapshot = await getDocs(collectionRef);
+                const snapshot = await getDocs(query(collectionRef, orderBy("activityData.createdDate", "desc")));
                 let temp = [];
                 snapshot.docs.forEach((doc) => {
                     temp.push({ ...doc.data() });

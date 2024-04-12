@@ -4,7 +4,7 @@ import ToolBarNew from "../../components/ToolBarNew";
 import { UserAuth } from "../../context/AuthContext";
 
 import { browserSessionPersistence, getAuth, setPersistence } from 'firebase/auth';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { txtDB } from "../../firebase";
 
 import ActivityCard from "../../components/ActivityCard";
@@ -37,7 +37,7 @@ const HistoryNew = () => {
                         const fetchActivities = async () => {
                             try {
                                 const collectionRef = collection(txtDB, "Activities");
-                                const snapshot = await getDocs(collectionRef);
+                                const snapshot = await getDocs(query(collectionRef, orderBy("activityData.createdDate", "desc")));
                                 let temp = [];
                                 snapshot.docs.forEach((doc) => {
                                     temp.push({ ...doc.data() });
