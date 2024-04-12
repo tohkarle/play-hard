@@ -3,38 +3,22 @@ import Mobile from "./Mobile";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const useViewport = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWidth(window.innerWidth);
-      setHeight(window.innerHeight);
-    };
-
-    // Set initial height
-    setHeight(window.innerHeight);
-
-    window.addEventListener("resize", handleWindowResize);
-
-    // Clean up the event listener when the component is unmounted
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []); // Empty dependency array to run the effect only once during mount
-
-  // Return both width and height
-  return { width, height };
+const updateThemeColor = (isDarkMode) => {
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  metaThemeColor.setAttribute('content', isDarkMode ? '#111827' : '#ffffff');
 };
 
+// Check the user's preferred color scheme on mount
+const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+updateThemeColor(isDarkMode);
+
+// Listen for changes in the user's preferred color scheme
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+  updateThemeColor(event.matches);
+});
+
 const App = () => {
-  const { width, height } = useViewport();
-  const width_breakpoint = 768;
-  const height_breakpoint = 512;
-
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-
   const theme = React.useMemo(
     () =>
       createTheme({
