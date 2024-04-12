@@ -51,7 +51,7 @@ const ConfirmationDialog = ({ showConfirmationDialog, setShowConfirmationDialog,
                                         No, cancel
                                     </button>
                                     <button
-                                        className={`text-sm h-9 w-28 font-medium text-center flex justify-center text-white ${type === "Default" ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900" }`} 
+                                        className={`text-sm h-9 min-w-32 font-medium text-center flex justify-center text-white ${type === "Default" ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900" }`} 
                                         onClick={handleClick}
                                     >
                                         {isLoading ? (

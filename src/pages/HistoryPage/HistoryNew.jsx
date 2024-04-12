@@ -17,7 +17,7 @@ const HistoryNew = () => {
     const { user } = UserAuth();
     const navigate = useNavigate();
     const { state } = useLocation();
-    const [activeTab, setActiveTab] = useState(state?.activeTab || 'created');
+    const [activeTab, setActiveTab] = useState(state?.activeTab || 0);
 
     const [userActivities, setUserActivities] = useState([]);
     const [joinedActivities, setJoinedActivities] = useState([]);
@@ -90,15 +90,15 @@ const HistoryNew = () => {
                 <p className="text-2xl font-semibold mb-2">History</p>
                 <p>Here you can find all the activities you have created and joined</p>
             </div>
-            <Tab.Group>
+            <Tab.Group selectedIndex={activeTab} onChange={setActiveTab}>
                 <Tab.List className="flex space-x-5 px-5">
                     <Tab
-                        className={`mb-4 w-full focus:outline-none text-sm focus:border-transparent ${activeTab == "created" ? "bg-black dark:bg-white text-white dark:text-black" : "dark:bg-gray-800"}`}
+                        className={`mb-4 w-full focus:outline-none text-sm focus:border-transparent ${activeTab == 0 ? "bg-black dark:bg-white text-white dark:text-black" : "dark:bg-gray-800"}`}
                         onClick={() => { setActiveTab("created") }}
                     >Created Activites
                     </Tab>
                     <Tab
-                        className={`mb-4 w-full focus:outline-none text-sm focus:border-transparent ${activeTab == "joined" ? "bg-black dark:bg-white text-white dark:text-black" : "dark:bg-gray-800"}`}
+                        className={`mb-4 w-full focus:outline-none text-sm focus:border-transparent ${activeTab == 1 ? "bg-black dark:bg-white text-white dark:text-black" : "dark:bg-gray-800"}`}
                         onClick={() => { setActiveTab("joined") }}
                     >Joined Activities
                     </Tab>

@@ -49,7 +49,7 @@ const ActivityModal = ({ showModal, setShowModal, selectedActivity }) => {
 
                 console.log("Document successfully updated!");
                 setIsLoading(false);
-                navigate('/history', { state: { activeTab: 'joined' } });
+                navigate('/history', { state: { activeTab: 1 } });
             })
     }
 
@@ -127,7 +127,7 @@ const ActivityModal = ({ showModal, setShowModal, selectedActivity }) => {
 
                                 {selectedActivity &&
                                     <div className="py-2.5">
-                                        <div className='flex mt-2 mb-3 px-3 space-x-3 overflow-x-auto w-full scroll-smooth'>
+                                        <div className='flex mt-2 mb-3 px-3 space-x-3 overflow-x-auto w-full scroll-smooth scrollbar-none'>
                                             {selectedActivity.activityData.imgUrl.length > 0 ? (
                                                 selectedActivity.activityData.imgUrl.map((image, index) => (
                                                     <img
@@ -194,10 +194,10 @@ const ActivityModal = ({ showModal, setShowModal, selectedActivity }) => {
                                                 return;
                                             } else if (selectedActivity?.activityData?.joinedUsers?.includes(user.uid)) {
                                                 // User has already joined, navigate to history joined activities tab
-                                                navigate('/history', { state: { activeTab: 'joined' } });
+                                                navigate('/history', { state: { activeTab: 1 } });
                                             } else if (selectedActivity?.username[0] === user.uid) {
                                                 // User created this activity, navigate to history created activities tab
-                                                navigate('/history');
+                                                navigate('/history', { state: { activeTab: 0 } });
                                             } else {
                                                 // User can join the activity
                                                 setShowConfirmationDialog(true);

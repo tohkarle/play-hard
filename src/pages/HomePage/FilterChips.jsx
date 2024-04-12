@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { SCROLLICONS } from "../../assets/components/LandingPage/SCROLLICONS";
+import { SCROLLICONS } from "../../SCROLLICONS";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const FilterChips = ({ allActivities, activityList, setActivityList }) => {
@@ -20,7 +20,7 @@ const FilterChips = ({ allActivities, activityList, setActivityList }) => {
     };
 
     return (
-        <div className='flex overflow-x-auto w-full px-3 mt-2 mb-4' ref={containerRef}>
+        <div className='flex overflow-x-auto w-full px-3 mt-2 mb-4 scrollbar-none' ref={containerRef}>
             {SCROLLICONS.map((item, index) => (
                 <div key={index}>
                     {selectedFilter === item.id ? (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from "../../context/AuthContext";
-import logo from '../../assets/images/play.png';
+import logo from '../../assets/play.png';
 import Alert from "../../components/Alert";
 
 const SignUpNew = () => {

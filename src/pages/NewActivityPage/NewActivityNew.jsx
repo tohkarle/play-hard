@@ -14,7 +14,7 @@ import { imgDB, txtDB } from "../../firebase";
 import { TextField } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import dayjs from 'dayjs';
-import { ACTIVITYTYPES } from "../../assets/components/LandingPage/SCROLLICONS";
+import { ACTIVITYTYPES } from "../../SCROLLICONS";
 
 import { v4 } from "uuid";
 

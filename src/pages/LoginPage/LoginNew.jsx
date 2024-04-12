@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import logo from '../../assets/images/play.png';
+import logo from '../../assets/play.png';
 import Alert from "../../components/Alert";
 import { UserAuth } from "../../context/AuthContext";
 
 const LoginNew = () => {
-
-    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -32,7 +29,7 @@ const LoginNew = () => {
     }
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-screen px-6">
             <div className="w-full max-w-sm px-2 bg-white border border-gray-200 rounded-3xl shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-9 lg:px-8">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">

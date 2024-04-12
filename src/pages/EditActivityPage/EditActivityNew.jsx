@@ -13,7 +13,7 @@ import { TextField } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import dayjs from 'dayjs';
 
-import { ACTIVITYTYPES } from "../../assets/components/LandingPage/SCROLLICONS";
+import { ACTIVITYTYPES } from "../../SCROLLICONS";
 
 import { IoTrashSharp } from "react-icons/io5";
 import ConfirmationDialog from "../../components/ConfirmationDialog";

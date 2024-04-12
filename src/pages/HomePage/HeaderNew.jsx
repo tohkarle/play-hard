@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from '../../assets/images/play.png';
+import logo from '../../assets/play.png';
 import { IoSearchOutline, IoCloseOutline } from "react-icons/io5";
 
 const HeaderNew = ({ username, allActivities, setActivityList }) => {
