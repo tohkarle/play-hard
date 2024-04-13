@@ -28,7 +28,7 @@ const HeaderNew = ({ username, allActivities, setActivityList }) => {
                 <a href="/home" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src={logo} className="h-20" alt="logo" />
                 </a>
-                <h3 className="w-full text-xl font-semibold pb-3">Welcome back, {username}!</h3>
+                <h3 className="w-full text-xl text-black dark:text-white font-semibold pb-3">Welcome back, {username}!</h3>
                 <div className="relative w-full">
                     <input
                         type="text"

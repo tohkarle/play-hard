@@ -67,7 +67,7 @@ const ProfilePageNew = () => {
     };
 
     return (
-        <div className="pt-[env(safe-area-inset-top)]">
+        <div className="pt-[env(safe-area-inset-top)] text-black dark:text-white">
             <div className="px-4 pt-4 flex justify-between items-center">
                 <p className="text-2xl font-semibold mb-2">Profile</p>
                 <Menu as="div" className="relative inline-block text-left">

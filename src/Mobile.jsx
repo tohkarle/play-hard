@@ -11,13 +11,14 @@ import SignUpNew from "./pages/LoginPage/SignUpNew";
 import NewActivityNew from "./pages/NewActivityPage/NewActivityNew";
 import ProfilePageNew from './pages/ProfilePageNew/ProfilePageNew';
 import ForgotPassword from './pages/LoginPage/ForgotPassword';
+import Settings from './pages/SettingsPage/Settings';
 
 const Mobile = () => {
 
   return (
     <Router>
-      <div className="w-screen h-full min-h-screen dark:bg-gray-900">
-          <AuthContextProvider>
+      <div className="w-screen h-full min-h-screen bg-white dark:bg-gray-900">
+        <AuthContextProvider>
             <Routes>
               <Route exact path="/" element={<AuthenticatedRoute><LoginNew /></AuthenticatedRoute>} />
               <Route exact path="/signup" element={<SignUpNew />} />
@@ -28,8 +29,9 @@ const Mobile = () => {
               <Route exact path="/profile" element={<ProfilePageNew />} />
               <Route exact path="/editprofile" element={<EditProfileNew />} />
               <Route exact path="/history" element={<HistoryNew />} />
+              <Route exact path="/settings" element={<Settings />} />
             </Routes>
-          </AuthContextProvider>
+        </AuthContextProvider>
       </div>
     </Router>
   );

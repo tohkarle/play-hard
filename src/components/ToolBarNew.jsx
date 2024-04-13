@@ -38,6 +38,7 @@ const ToolBarNew = () => {
                 <button 
                 type="button" 
                 className="bg-transparent inline-flex flex-col items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 group focus:outline-none"
+                onClick={() => navigate("/settings")}
                 >
                     <IoSettingsSharp className="w-6 h-6 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" />
                 </button>

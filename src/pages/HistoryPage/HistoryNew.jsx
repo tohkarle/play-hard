@@ -85,7 +85,7 @@ const HistoryNew = () => {
     }
 
     return (
-        <div className="pt-[env(safe-area-inset-top)]">
+        <div className="pt-[env(safe-area-inset-top)] text-black dark:text-white">
             <div className="p-4">
                 <p className="text-2xl font-semibold mb-2">History</p>
                 <p>Here you can find all the activities you have created and joined</p>
@@ -93,12 +93,12 @@ const HistoryNew = () => {
             <Tab.Group selectedIndex={activeTab} onChange={setActiveTab}>
                 <Tab.List className="flex space-x-5 px-5">
                     <Tab
-                        className={`mb-4 w-full focus:outline-none text-sm focus:border-transparent ${activeTab == 0 ? "bg-black dark:bg-white text-white dark:text-black" : "dark:bg-gray-800"}`}
+                        className={`mb-4 w-full focus:outline-none text-sm focus:border-transparent ${activeTab == 0 ? "bg-black dark:bg-white text-white dark:text-black" : "bg-gray-100 dark:bg-gray-800"}`}
                         onClick={() => { setActiveTab("created") }}
                     >Created Activites
                     </Tab>
                     <Tab
-                        className={`mb-4 w-full focus:outline-none text-sm focus:border-transparent ${activeTab == 1 ? "bg-black dark:bg-white text-white dark:text-black" : "dark:bg-gray-800"}`}
+                        className={`mb-4 w-full focus:outline-none text-sm focus:border-transparent ${activeTab == 1 ? "bg-black dark:bg-white text-white dark:text-black" : "bg-gray-100 dark:bg-gray-800"}`}
                         onClick={() => { setActiveTab("joined") }}
                     >Joined Activities
                     </Tab>

@@ -172,7 +172,7 @@ const NewActivityNew = () => {
     }
 
     return (
-        <div className="pt-[env(safe-area-inset-top)]">
+        <div className="pt-[env(safe-area-inset-top)] text-black dark:text-white">
             <p className="px-3 pt-4 text-xl font-semibold text-left">Create New Activity</p>
             <ImagePicker file={file} setFile={setFile} />
             <div className="space-y-7 px-3">

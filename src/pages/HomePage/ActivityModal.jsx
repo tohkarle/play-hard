@@ -89,7 +89,7 @@ const ActivityModal = ({ showModal, setShowModal, selectedActivity }) => {
 
     return (
         <Transition appear show={showModal} as={Fragment}>
-            <Dialog as="div" className="relative z-20" onClose={() => { setShowModal(false) }}>
+            <Dialog as="div" className="relative z-20 text-black dark:text-white" onClose={() => { setShowModal(false) }}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"

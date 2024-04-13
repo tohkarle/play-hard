@@ -171,9 +171,9 @@ const EditProfileNew = () => {
             setIsLoading(false);
         }
     }
-
+    
     return (
-        <div className="pt-[env(safe-area-inset-top)]">
+        <div className="pt-[env(safe-area-inset-top)] text-black dark:text-white">
             <p className="px-4 pt-4 text-xl font-semibold text-left">Edit Profile</p>
             <div className="w-full mt-6 flex justify-center">
                 {file && image ? (

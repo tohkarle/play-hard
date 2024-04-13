@@ -181,7 +181,7 @@ const EditActivityNew = () => {
     };
 
     return (
-        <div className="pt-[env(safe-area-inset-top)]">
+        <div className="pt-[env(safe-area-inset-top)] text-black dark:text-white">
             <p className="px-4 pt-4 text-xl font-semibold text-left">Edit Activity</p>
             <div className="px-1">
                 <div className='flex mt-3 mb-4 overflow-x-auto w-full scroll-smooth'>
