@@ -1,11 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/play.png';
 import Alert from "../../components/Alert";
 import { UserAuth } from "../../context/AuthContext";
+import useEmailValidator from "../../hooks/useEmailValidator";
 
+/**
+ * LoginNew component represents the login page with email and password fields.
+ * 
+ * @returns {JSX.Element} LoginNew component
+ */
 const LoginNew = () => {
 
-    const [email, setEmail] = useState('');
+    const navigate = useNavigate();
+
+    const { email, isValidEmail, handleEmailChange } = useEmailValidator();
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState("");
@@ -14,6 +23,13 @@ const LoginNew = () => {
     const { signin } = UserAuth()
 
     const onLogin = async (e) => {
+
+        if (!isValidEmail) {
+            setMessage("Please enter a valid email address")
+            setVisible(true)
+            return;
+        }
+
         setIsLoading(true)
         e.preventDefault();
         try {
@@ -21,15 +37,15 @@ const LoginNew = () => {
         } catch (error) {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, errorMessage)
-            setIsLoading(false)
-            setMessage(errorCode, errorMessage)
-            setVisible(true)
+            console.log(errorCode, errorMessage);
+            setIsLoading(false);
+            setMessage(errorCode, errorMessage);
+            setVisible(true);
         }
     }
 
     return (
-        <div className="flex justify-center items-center h-screen px-6">
+        <div className="px-6 flex justify-center items-center h-screen">
             <div className="w-full max-w-sm px-2 bg-white border border-gray-200 rounded-3xl shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-9 lg:px-8">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -54,7 +70,7 @@ const LoginNew = () => {
                                         autoComplete="email"
                                         required
                                         value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        onChange={(e) => handleEmailChange(e)}
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="example@example.com"
                                     />
@@ -67,6 +83,14 @@ const LoginNew = () => {
                                     <label htmlFor="password" className="block text-sm font-medium">
                                         Password
                                     </label>
+                                    <div className="text-sm">
+                                        <a
+                                            className="font-semibold text-indigo-600 hover:text-indigo-500"
+                                            onClick={() => { navigate("/forgotpassword") }}
+                                        >
+                                            Forgot password?
+                                        </a>
+                                    </div>
                                 </div>
                                 <div className="mt-2">
                                     <input
@@ -104,7 +128,10 @@ const LoginNew = () => {
                         </form>
                         <p className="mt-10 text-center text-sm text-gray-500">
                             Not a member?{' '}
-                            <a href="signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                            <a
+                                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                                onClick={() => { navigate("/signup") }}
+                            >
                                 Sign up
                             </a>
                         </p>

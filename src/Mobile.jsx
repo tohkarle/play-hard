@@ -10,6 +10,7 @@ import LoginNew from "./pages/LoginPage/LoginNew";
 import SignUpNew from "./pages/LoginPage/SignUpNew";
 import NewActivityNew from "./pages/NewActivityPage/NewActivityNew";
 import ProfilePageNew from './pages/ProfilePageNew/ProfilePageNew';
+import ForgotPassword from './pages/LoginPage/ForgotPassword';
 
 const Mobile = () => {
 
@@ -20,6 +21,7 @@ const Mobile = () => {
             <Routes>
               <Route exact path="/" element={<AuthenticatedRoute><LoginNew /></AuthenticatedRoute>} />
               <Route exact path="/signup" element={<SignUpNew />} />
+              <Route exact path="/forgotpassword" element={<ForgotPassword />} />
               <Route exact path="/home" element={<ProtectedRoute><LandingNew /></ProtectedRoute>} />
               <Route exact path="/newactivity" element={<NewActivityNew />} />
               <Route exact path="/editactivity" element={<EditActivityNew />} />

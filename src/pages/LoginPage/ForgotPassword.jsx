@@ -4,29 +4,19 @@ import logo from '../../assets/play.png';
 import Alert from "../../components/Alert";
 import { UserAuth } from "../../context/AuthContext";
 import useEmailValidator from "../../hooks/useEmailValidator";
-import usePasswordValidator from "../../hooks/usePasswordValidator";
 
-/**
- * SignUpNew component represents the sign-up page with fields for username, email, password, and password confirmation.
- * 
- * @returns {JSX.Element} SignUpNew component
- */
-const SignUpNew = () => {
+const ForgotPassword = () => {
 
     const navigate = useNavigate();
 
-    const [username, setUserName] = useState('');
     const { email, isValidEmail, handleEmailChange } = useEmailValidator();
-    const { password, isValidPassword, handlePasswordChange } = usePasswordValidator();
-    const [confirmPassword, setConfirmPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState("");
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(false)
 
-    const { createUser } = UserAuth();
+    const { resetPassword } = UserAuth()
 
-    const onSubmit = async (e) => {
-        e.preventDefault()
+    const handleClick = async (e) => {
 
         if (!isValidEmail) {
             setMessage("Please enter a valid email address")
@@ -34,39 +24,20 @@ const SignUpNew = () => {
             return;
         }
 
-        if (!isValidPassword) {
-            setMessage("Password must be minimum 8 characters, at least one uppercase letter, one lowercase letter, and one number")
-            setVisible(true)
-            return;
-        }
-
-        if (username === "" || email === "" || password === "" || confirmPassword === "") {
-            setMessage("Please fill up all fields")
-            setVisible(true)
-            return;
-        }
-
-        if (password !== confirmPassword) {
-            setMessage("Password do not match")
-            setVisible(true)
-            return;
-        }
-
         setIsLoading(true)
+        e.preventDefault();
         try {
-            await createUser(email, password, username)
-            setIsLoading(false)
-            setMessage("")
-            setVisible(false)
-            navigate("/home")
+            resetPassword(email);
+            setIsLoading(false);
+            setMessage("Password reset email sent");
+            setVisible(true);
         } catch (error) {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage);
-            // ..
-            setIsLoading(false)
-            setMessage(errorCode, errorMessage)
-            setVisible(true)
+            setIsLoading(false);
+            setMessage(errorCode, errorMessage);
+            setVisible(true);
         }
     }
 
@@ -85,26 +56,8 @@ const SignUpNew = () => {
                     <div className="mt-3 sm:mx-auto sm:w-full sm:max-w-sm">
                         <form className="space-y-6" action="#" method="POST">
                             <div>
-                                <label htmlFor="username" className="block text-sm font-medium">
-                                    Username
-                                </label>
-                                <div className="mt-2">
-                                    <input
-                                        id="username"
-                                        name="username"
-                                        type="text"
-                                        autoComplete="username"
-                                        required
-                                        value={username}
-                                        onChange={(e) => setUserName(e.target.value)}
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="username"
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-medium">
-                                    Email address
+                                <label htmlFor="email" className="block text-sm font-medium mb-4">
+                                    Please enter the email you registered with, and we will send a link to reset your password.
                                 </label>
                                 <div className="mt-2">
                                     <input
@@ -116,47 +69,11 @@ const SignUpNew = () => {
                                         value={email}
                                         onChange={(e) => handleEmailChange(e)}
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="example@example.com"
+                                        placeholder="Email"
                                     />
                                 </div>
-                            </div>
 
-                            <div>
-                                <label htmlFor="password" className="block text-sm font-medium ">
-                                    Password
-                                </label>
-                                <div className="mt-2">
-                                    <input
-                                        id="password"
-                                        name="password"
-                                        type="password"
-                                        autoComplete="current-password"
-                                        required
-                                        value={password}
-                                        onChange={(e) => handlePasswordChange(e)}
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    />
-                                </div>
                             </div>
-
-                            <div>
-                                <label htmlFor="repeat-password" className="block text-sm font-medium ">
-                                    Repeat Password
-                                </label>
-                                <div className="mt-2">
-                                    <input
-                                        id="repeat-password"
-                                        name="repeat-password"
-                                        type="password"
-                                        autoComplete="current-password"
-                                        required
-                                        value={confirmPassword}
-                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    />
-                                </div>
-                            </div>
-
                             <div>
                                 {isLoading ? (
                                     <button disabled type="button" className="w-full justify-center py-2 px-5 me-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center">
@@ -170,16 +87,16 @@ const SignUpNew = () => {
                                     <button
                                         type="submit"
                                         className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                        onClick={onSubmit}
+                                        onClick={handleClick}
                                     >
-                                        Sign up
+                                        Reset Password
                                     </button>
                                 )}
                             </div>
                         </form>
 
                         <p className="mt-10 text-center text-sm text-gray-500">
-                            Already a member?{' '}
+                            Remember your password?{' '}
                             <a
                                 className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
                                 onClick={() => { navigate("/") }}
@@ -193,6 +110,6 @@ const SignUpNew = () => {
             </div>
         </div>
     )
-};
+}
 
-export default SignUpNew;
+export default ForgotPassword
