@@ -45,7 +45,7 @@ const LoginNew = () => {
     }
 
     return (
-        <div className="px-6 flex justify-center items-center h-screen">
+        <div className="px-6 flex justify-center items-center h-screen text-black dark:text-white">
             <div className="w-full max-w-sm px-2 bg-white border border-gray-200 rounded-3xl shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-9 lg:px-8">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
