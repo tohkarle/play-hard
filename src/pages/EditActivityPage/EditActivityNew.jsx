@@ -40,6 +40,7 @@ const EditActivityNew = () => {
     const joinedUsers = activity.activityData.joinedUsers;
     const documentID = activity.activityData.documentID;
     const imgUrl = activity.activityData.imgUrl;
+    const createdDate = activity.activityData.createdDate;
 
     const startDateSeconds = activity.activityData.date[0].seconds;
     const startDateNanosecond = activity.activityData.date[0].nanoseconds;
@@ -64,6 +65,7 @@ const EditActivityNew = () => {
         joinedUsers: joinedUsers,
         documentID: documentID,
         imgUrl: imgUrl,
+        createdDate: createdDate,
     };
 
     const handleActivityTypeChange = (event, newValue) => {

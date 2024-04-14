@@ -113,7 +113,7 @@ const HistoryNew = () => {
                             </div>
                         ) : (
                             <div className='w-full'>
-                                <p className="mt-9 text-center text-xl font-semibold">
+                                <p className="mt-9 text-center text-xl font-semibold text-black dark:text-white">
                                     No activity found
                                 </p>
                             </div>
@@ -128,7 +128,7 @@ const HistoryNew = () => {
                             </div>
                         ) : (
                             <div className='w-full'>
-                                <p className="mt-9 text-center text-xl font-semibold">
+                                <p className="mt-9 text-center text-xl font-semibold text-black dark:text-white">
                                     No activity found
                                 </p>
                             </div>

@@ -19,7 +19,7 @@ const Activities = ({ activityList, setSelectedActivity, setShowModal }) => {
                 </div>
             ) : (
                 <div className='w-full h-full'>
-                    <p className="mt-9 text-center text-xl font-semibold">
+                    <p className="mt-9 text-center text-xl font-semibold text-black dark:text-white">
                         No activity found
                     </p>
                 </div>
