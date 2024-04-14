@@ -87,7 +87,12 @@ const HistoryNew = () => {
     return (
         <div className="pt-[env(safe-area-inset-top)] text-black dark:text-white">
             <div className="p-4">
-                <p className="text-2xl font-semibold mb-2">History</p>
+                <div className="flex items-center mb-2">
+                    <p className="text-2xl font-semibold">History</p>
+                    {user.uid === "SyAJbyX2bGg9UjXEWYgvVEKkj4z2" &&
+                        <p className="bg-blue-200 ml-2 text-blue-900 text-xs px-2 rounded-sm">Admin</p>
+                    }
+                </div>
                 <p>Here you can find all the activities you have created and joined</p>
             </div>
             <Tab.Group selectedIndex={activeTab} onChange={setActiveTab}>
