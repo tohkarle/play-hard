@@ -38,7 +38,7 @@ const LandingNew = () => {
     }, []); // Empty dependency array ensures this effect runs only once on mount
 
     return (
-        <div className="pt-[env(safe-area-inset-top)]">
+        <>
             <HeaderNew username={user.username} allActivities={allActivities} setActivityList={setActivityList} />
             <FilterChips allActivities={allActivities} activityList={activityList} setActivityList={setActivityList} />
             <Activities activityList={activityList} setSelectedActivity={setSelectedActivity} setShowModal={setShowModal} />
@@ -46,7 +46,7 @@ const LandingNew = () => {
 
             {/* Modal to display detailed activity information */}
             <ActivityModal showModal={showModal} setShowModal={setShowModal} selectedActivity={selectedActivity} />
-        </div>
+        </>
     )
 };
 

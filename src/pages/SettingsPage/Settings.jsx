@@ -1,6 +1,5 @@
 import React from 'react';
 import { MdDarkMode, MdLightMode } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
 import ToolBarNew from '../../components/ToolBarNew';
 import { useThemeContext } from '../../context/ColorModeContext';
 
@@ -8,15 +7,23 @@ import { useThemeContext } from '../../context/ColorModeContext';
 
 const Settings = () => {
 
-    const navigate = useNavigate();
     const { theme, toggleColorMode } = useThemeContext();
+
+    const updateThemeColor = (isDarkMode) => {
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        metaThemeColor.setAttribute('content', isDarkMode ? '#111827' : '#ffffff');
+      };
+
     const toggleTheme = () => {
+        const isDarkMode = theme.palette.mode === "light";
+        updateThemeColor(isDarkMode);
         toggleColorMode();
         document.documentElement.classList.toggle("dark");
+        document.body.style.backgroundColor = isDarkMode ? '#111827' : '#ffffff';
     }
 
     return (
-        <div className="pt-[env(safe-area-inset-top)] text-black dark:text-white">
+        <div className="text-black dark:text-white">
             <p className="text-2xl font-semibold mb-2 p-4">Settings</p>
             <div className="flex items-center justify-between mx-5 font-medium">
                 <div className="flex items-center">

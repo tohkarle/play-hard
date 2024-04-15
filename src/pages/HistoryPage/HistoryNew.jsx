@@ -85,7 +85,7 @@ const HistoryNew = () => {
     }
 
     return (
-        <div className="pt-[env(safe-area-inset-top)] text-black dark:text-white">
+        <div className="text-black dark:text-white">
             <div className="p-4">
                 <div className="flex items-center mb-2">
                     <p className="text-2xl font-semibold">History</p>

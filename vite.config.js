@@ -15,7 +15,7 @@ export default defineConfig({
         name: 'Play Hard',
         short_name: 'Play Hard',
         description: 'A socialising app',
-        theme_color: '#000000',
+        theme_color: '#ffffff',
       }
     })
   ],
