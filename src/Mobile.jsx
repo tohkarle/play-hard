@@ -18,6 +18,7 @@ const Mobile = () => {
   return (
     <Router>
       <div className="w-screen h-full min-h-screen bg-white dark:bg-gray-900">
+      <div className="fixed z-10 h-[env(safe-area-inset-top)] bg-white dark:bg-gray-900 opacity-90 left-0 right-0"></div>
         <AuthContextProvider>
             <Routes>
               <Route exact path="/" element={<AuthenticatedRoute><LoginNew /></AuthenticatedRoute>} />

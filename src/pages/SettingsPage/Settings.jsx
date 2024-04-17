@@ -23,7 +23,7 @@ const Settings = () => {
     }
 
     return (
-        <div className="text-black dark:text-white">
+        <div className="text-black dark:text-white pt-[env(safe-area-inset-top)]">
             <p className="text-2xl font-semibold mb-2 p-4">Settings</p>
             <div className="flex items-center justify-between mx-5 font-medium">
                 <div className="flex items-center">
